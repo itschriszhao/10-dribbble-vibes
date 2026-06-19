@@ -1,0 +1,16 @@
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*~
+
+# Thumbnails
+preview.png
+*.png.bak
+
+# Local notes
+notes.md
+TODO.md

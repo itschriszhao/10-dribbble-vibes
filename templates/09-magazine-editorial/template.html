@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[[TITLE]]</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{--bg:#F4EFE6;--bg2:#ECE5D7;--ink:#2A1F18;--ink2:#5C4A3D;--ink3:#8B7763;--ac:#C0392B;--gold:#B08D57;--line:rgba(42,31,24,.18)}
+  body{background:var(--bg);color:var(--ink);font:17px/1.7 'Playfair Display','Songti SC',serif;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1080px;margin:0 auto;padding:48px 32px 96px}
+  .sans{font-family:'Inter','PingFang SC',sans-serif}
+  h1{font-size:88px;line-height:.95;letter-spacing:-.02em;font-weight:900}
+  h2{font-size:56px;line-height:1.05;font-weight:700;font-style:italic;margin-bottom:20px}
+  h3{font-size:24px;line-height:1.3;font-weight:700;margin-bottom:10px}
+  p{color:var(--ink2)}
+  .cap{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);font-weight:500;margin-bottom:14px}
+  /* HERO masthead */
+  .masthead{border-top:3px double var(--ink);border-bottom:1px solid var(--ink);padding:16px 0;margin-bottom:48px;display:flex;justify-content:space-between;align-items:center;font-family:'Inter',sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:var(--ink2)}
+  .masthead .logo{font-family:'Playfair Display';font-size:24px;font-weight:900;letter-spacing:0;text-transform:none}
+  .hero{padding:48px 0 64px;border-bottom:1px solid var(--line);margin-bottom:64px}
+  .hero .issue{font-family:'Inter';font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ac);font-weight:700;margin-bottom:24px}
+  .hero h1{margin-bottom:24px}
+  .hero h1 em{font-style:italic;color:var(--ac)}
+  .hero p{font-family:'Playfair Display';font-style:italic;font-size:24px;max-width:680px;margin-bottom:48px;color:var(--ink2)}
+  .byline{font-family:'Inter';font-size:13px;color:var(--ink3);letter-spacing:.05em;margin-bottom:32px}
+  .byline b{color:var(--ink);text-transform:uppercase;letter-spacing:.1em;font-size:11px}
+  .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding-top:32px;border-top:1px solid var(--line)}
+  .m b{display:block;font-family:'Playfair Display';font-size:48px;font-weight:900;line-height:1}
+  .m span{font-family:'Inter';font-size:12px;color:var(--ink3);text-transform:uppercase;letter-spacing:.08em}
+  section{margin-bottom:64px}
+  /* OVERVIEW with drop cap & two columns */
+  .lede{column-count:2;column-gap:48px;column-rule:1px solid var(--line);font-size:17px;color:var(--ink)}
+  .lede::first-letter{font-family:'Playfair Display';font-size:84px;font-weight:900;float:left;line-height:.85;margin:6px 12px 0 0;color:var(--ac)}
+  /* TABLE */
+  table{width:100%;border-collapse:collapse;font-family:'Inter';font-size:14px;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+  th,td{padding:16px 12px;text-align:left;border-bottom:1px solid var(--line)}
+  th{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink3);font-weight:700;border-bottom:1px solid var(--ink)}
+  tr:last-child td{border-bottom:0}
+  td:first-child{font-family:'Playfair Display';font-weight:700;font-size:16px}
+  /* GRID (3-col article cards) */
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--ink)}
+  .card{padding:32px 24px 32px 0;border-right:1px solid var(--line)}
+  .card:last-child{border-right:0;padding-right:0}
+  .card:not(:first-child){padding-left:24px}
+  .card .num{font-family:'Inter';font-size:11px;color:var(--ac);font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin-bottom:14px}
+  .card h3{font-style:italic;margin-bottom:12px}
+  .card p{font-size:15px;line-height:1.6}
+  /* DETAIL */
+  .detail{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .detail-img{aspect-ratio:3/4;background:linear-gradient(180deg,#8B7763,#2A1F18);position:relative}
+  .detail-img::after{content:'';position:absolute;inset:8px;border:1px solid rgba(255,255,255,.3)}
+  .pull{font-family:'Playfair Display';font-style:italic;font-size:32px;line-height:1.3;color:var(--ac);padding:32px 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);margin:32px 0}
+  /* TIMELINE */
+  .tl-item{display:grid;grid-template-columns:160px 1fr;gap:32px;padding:24px 0;border-bottom:1px solid var(--line)}
+  .tl-item:last-child{border-bottom:0}
+  .tl-time{font-family:'Inter';font-size:12px;color:var(--ac);font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding-top:6px}
+  /* QUOTE */
+  .quote{padding:64px 0;text-align:center;border-top:3px double var(--ink);border-bottom:3px double var(--ink);font-style:italic;font-size:36px;line-height:1.4;font-weight:400}
+  .quote cite{display:block;margin-top:24px;font-family:'Inter';font-style:normal;font-size:12px;color:var(--ink3);letter-spacing:.15em;text-transform:uppercase;font-weight:500}
+  footer{padding-top:32px;margin-top:64px;border-top:3px double var(--ink);font-family:'Inter';font-size:11px;color:var(--ink3);text-transform:uppercase;letter-spacing:.15em;display:flex;justify-content:space-between}
+  @media (max-width:760px){h1{font-size:48px}h2{font-size:36px}.lede{column-count:1}.grid{grid-template-columns:1fr}.card{border-right:0;padding:32px 0!important;border-bottom:1px solid var(--line)}.detail{grid-template-columns:1fr}.metrics{grid-template-columns:repeat(2,1fr)}.tl-item{grid-template-columns:1fr;gap:6px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="masthead">
+    <span>[[MAG_NAME]]</span>
+    <span class="logo">[[MAG_LOGO]]</span>
+    <span>[[MAG_ISSUE]]</span>
+  </div>
+
+  <header class="hero">
+    <p class="issue">[[TAG]]</p>
+    <h1>[[TITLE_PART_1]] <em>[[TITLE_ITALIC]]</em> [[TITLE_PART_2]]</h1>
+    <p>[[SUBTITLE]]</p>
+    <p class="byline"><b>BY</b> [[AUTHOR]] &nbsp;·&nbsp; [[DATE]] &nbsp;·&nbsp; [[READ_TIME]]</p>
+    <div class="metrics">
+      <div class="m"><b>[[METRIC_1_VALUE]]</b><span>[[METRIC_1_LABEL]]</span></div>
+      <div class="m"><b>[[METRIC_2_VALUE]]</b><span>[[METRIC_2_LABEL]]</span></div>
+      <div class="m"><b>[[METRIC_3_VALUE]]</b><span>[[METRIC_3_LABEL]]</span></div>
+      <div class="m"><b>[[METRIC_4_VALUE]]</b><span>[[METRIC_4_LABEL]]</span></div>
+    </div>
+  </header>
+
+  <section>
+    <p class="cap">I · The Lede</p>
+    <h2>[[OVERVIEW_TITLE]]</h2>
+    <p class="lede">[[OVERVIEW_TEXT_LONG]]</p>
+  </section>
+
+  <section>
+    <p class="cap">II · The Field</p>
+    <h2>[[TABLE_TITLE]]</h2>
+    <table>
+      <thead><tr><th>[[COL_1]]</th><th>[[COL_2]]</th><th>[[COL_3]]</th><th>[[COL_4]]</th><th>[[COL_5]]</th></tr></thead>
+      <tbody>
+        <tr><td>[[ROW_1_C1]]</td><td>[[ROW_1_C2]]</td><td>[[ROW_1_C3]]</td><td>[[ROW_1_C4]]</td><td>[[ROW_1_C5]]</td></tr>
+        <tr><td>[[ROW_2_C1]]</td><td>[[ROW_2_C2]]</td><td>[[ROW_2_C3]]</td><td>[[ROW_2_C4]]</td><td>[[ROW_2_C5]]</td></tr>
+        <tr><td>[[ROW_3_C1]]</td><td>[[ROW_3_C2]]</td><td>[[ROW_3_C3]]</td><td>[[ROW_3_C4]]</td><td>[[ROW_3_C5]]</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <p class="cap">III · Dispatches</p>
+    <h2 style="margin-bottom:32px">[[CARDS_TITLE]]</h2>
+    <div class="grid">
+      <div class="card"><div class="num">No. 01</div><h3>[[CARD_1_TITLE]]</h3><p>[[CARD_1_TEXT]]</p></div>
+      <div class="card"><div class="num">No. 02</div><h3>[[CARD_2_TITLE]]</h3><p>[[CARD_2_TEXT]]</p></div>
+      <div class="card"><div class="num">No. 03</div><h3>[[CARD_3_TITLE]]</h3><p>[[CARD_3_TEXT]]</p></div>
+    </div>
+  </section>
+
+  <section>
+    <p class="cap">IV · The Subject</p>
+    <div class="detail">
+      <div>
+        <h2>[[DETAIL_TITLE]]</h2>
+        <p>[[DETAIL_TEXT]]</p>
+      </div>
+      <div class="detail-img"></div>
+    </div>
+    <p class="pull">"[[PULL_QUOTE]]"</p>
+  </section>
+
+  <section>
+    <p class="cap">V · The Chronicle</p>
+    <h2>[[TIMELINE_TITLE]]</h2>
+    <div style="margin-top:24px">
+      <div class="tl-item"><div class="tl-time">[[TL_1_TIME]]</div><div><h3>[[TL_1_TITLE]]</h3><p>[[TL_1_TEXT]]</p></div></div>
+      <div class="tl-item"><div class="tl-time">[[TL_2_TIME]]</div><div><h3>[[TL_2_TITLE]]</h3><p>[[TL_2_TEXT]]</p></div></div>
+      <div class="tl-item"><div class="tl-time">[[TL_3_TIME]]</div><div><h3>[[TL_3_TITLE]]</h3><p>[[TL_3_TEXT]]</p></div></div>
+    </div>
+  </section>
+
+  <section>
+    <blockquote class="quote">"[[QUOTE]]"<cite>— [[QUOTE_AUTHOR]]</cite></blockquote>
+  </section>
+
+  <footer><span>[[FOOTER_LEFT]]</span><span>[[FOOTER_RIGHT]]</span></footer>
+</div>
+</body>
+</html>

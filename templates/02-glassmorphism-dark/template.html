@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[[TITLE]]</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --bg:#0A0E1F; --text:#F4F6FF; --t2:rgba(244,246,255,.72); --t3:rgba(244,246,255,.45);
+    --glass:rgba(255,255,255,.06); --bd:rgba(255,255,255,.12);
+  }
+  body{background:var(--bg);color:var(--text);font:16px/1.65 'Inter',-apple-system,'PingFang SC',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative}
+  body::before,body::after,.bg-blob{content:'';position:absolute;border-radius:50%;filter:blur(120px);opacity:.45;z-index:0;pointer-events:none}
+  body::before{width:560px;height:560px;background:#7C3AED;top:-100px;left:-150px}
+  body::after{width:520px;height:520px;background:#2563EB;top:300px;right:-120px}
+  .bg-blob{width:480px;height:480px;background:#EC4899;top:1200px;left:30%;opacity:.3}
+  .wrap{max-width:1100px;margin:0 auto;padding:64px 32px 96px;position:relative;z-index:1}
+  .glass{background:var(--glass);backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);border:1px solid var(--bd);border-radius:24px}
+  h1{font-size:64px;line-height:1.05;letter-spacing:-.02em;font-weight:700;background:linear-gradient(135deg,#fff 0%,rgba(255,255,255,.6) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  h2{font-size:32px;line-height:1.2;font-weight:600;margin-bottom:24px}
+  h3{font-size:20px;font-weight:600;margin-bottom:10px}
+  p{color:var(--t2)}
+  .cap{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--t3);margin-bottom:14px}
+  /* HERO */
+  .hero{padding:80px 56px;margin-bottom:64px;text-align:center}
+  .hero .badge{display:inline-block;padding:8px 16px;border-radius:100px;background:rgba(255,255,255,.08);border:1px solid var(--bd);font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:32px}
+  .hero h1{margin-bottom:20px}
+  .hero p{font-size:18px;max-width:600px;margin:0 auto 48px}
+  .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+  .metrics .m{padding:20px;border-right:1px solid var(--bd)}
+  .metrics .m:last-child{border-right:0}
+  .m b{display:block;font-size:36px;font-weight:700;background:linear-gradient(135deg,#A78BFA,#60A5FA);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .m span{font-size:12px;color:var(--t3);letter-spacing:.05em}
+  section{margin-bottom:64px}
+  /* TABLE */
+  .tbl-wrap{padding:8px;overflow:hidden}
+  table{width:100%;border-collapse:separate;border-spacing:0}
+  th,td{padding:18px 20px;text-align:left;font-size:14px;border-bottom:1px solid var(--bd)}
+  th{font-size:11px;color:var(--t3);font-weight:500;letter-spacing:.1em;text-transform:uppercase}
+  tr:last-child td{border-bottom:0}
+  td:first-child{font-weight:600}
+  /* GRID */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+  .card{padding:32px;transition:transform .3s}
+  .card:hover{transform:translateY(-4px)}
+  .card .ico{width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,#7C3AED,#2563EB);margin-bottom:20px;display:flex;align-items:center;justify-content:center;font-size:22px}
+  /* DETAIL */
+  .detail{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;padding:48px}
+  .detail-img{aspect-ratio:1/1;background:linear-gradient(135deg,#7C3AED,#EC4899);border-radius:20px;position:relative;overflow:hidden}
+  .detail-img::after{content:'';position:absolute;inset:1px;border-radius:19px;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.4),transparent 60%)}
+  /* TIMELINE */
+  .tl{padding:40px}
+  .tl-item{display:grid;grid-template-columns:140px 1fr;gap:32px;padding:20px 0;border-bottom:1px solid var(--bd)}
+  .tl-item:last-child{border-bottom:0}
+  .tl-time{font-size:13px;color:var(--t3);font-feature-settings:"tnum"}
+  /* QUOTE */
+  .quote{padding:56px;font-size:24px;line-height:1.5;font-weight:500;text-align:center}
+  .quote cite{display:block;margin-top:24px;font-size:14px;color:var(--t3);font-style:normal}
+  footer{padding:32px;margin-top:64px;display:flex;justify-content:space-between;font-size:13px;color:var(--t3)}
+  @media (max-width:720px){.hero{padding:48px 24px}.hero h1{font-size:42px}.detail{grid-template-columns:1fr}.metrics{grid-template-columns:repeat(2,1fr)}.metrics .m:nth-child(2){border-right:0}.tl-item{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="bg-blob"></div>
+<div class="wrap">
+
+  <header class="glass hero">
+    <span class="badge">[[TAG]]</span>
+    <h1>[[TITLE]]</h1>
+    <p>[[SUBTITLE]]</p>
+    <div class="metrics">
+      <div class="m"><b>[[METRIC_1_VALUE]]</b><span>[[METRIC_1_LABEL]]</span></div>
+      <div class="m"><b>[[METRIC_2_VALUE]]</b><span>[[METRIC_2_LABEL]]</span></div>
+      <div class="m"><b>[[METRIC_3_VALUE]]</b><span>[[METRIC_3_LABEL]]</span></div>
+      <div class="m"><b>[[METRIC_4_VALUE]]</b><span>[[METRIC_4_LABEL]]</span></div>
+    </div>
+  </header>
+
+  <section>
+    <p class="cap">01 · Overview</p>
+    <h2>[[OVERVIEW_TITLE]]</h2>
+    <p style="max-width:680px;font-size:17px">[[OVERVIEW_TEXT]]</p>
+  </section>
+
+  <section>
+    <p class="cap">02 · Comparison</p>
+    <h2>[[TABLE_TITLE]]</h2>
+    <div class="glass tbl-wrap">
+      <table>
+        <thead><tr><th>[[COL_1]]</th><th>[[COL_2]]</th><th>[[COL_3]]</th><th>[[COL_4]]</th><th>[[COL_5]]</th></tr></thead>
+        <tbody>
+          <tr><td>[[ROW_1_C1]]</td><td>[[ROW_1_C2]]</td><td>[[ROW_1_C3]]</td><td>[[ROW_1_C4]]</td><td>[[ROW_1_C5]]</td></tr>
+          <tr><td>[[ROW_2_C1]]</td><td>[[ROW_2_C2]]</td><td>[[ROW_2_C3]]</td><td>[[ROW_2_C4]]</td><td>[[ROW_2_C5]]</td></tr>
+          <tr><td>[[ROW_3_C1]]</td><td>[[ROW_3_C2]]</td><td>[[ROW_3_C3]]</td><td>[[ROW_3_C4]]</td><td>[[ROW_3_C5]]</td></tr>
+          <tr><td>[[ROW_4_C1]]</td><td>[[ROW_4_C2]]</td><td>[[ROW_4_C3]]</td><td>[[ROW_4_C4]]</td><td>[[ROW_4_C5]]</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <p class="cap">03 · Features</p>
+    <h2>[[CARDS_TITLE]]</h2>
+    <div class="grid">
+      <div class="glass card"><div class="ico">★</div><h3>[[CARD_1_TITLE]]</h3><p>[[CARD_1_TEXT]]</p></div>
+      <div class="glass card"><div class="ico">◆</div><h3>[[CARD_2_TITLE]]</h3><p>[[CARD_2_TEXT]]</p></div>
+      <div class="glass card"><div class="ico">●</div><h3>[[CARD_3_TITLE]]</h3><p>[[CARD_3_TEXT]]</p></div>
+    </div>
+  </section>
+
+  <section class="glass detail">
+    <div>
+      <p class="cap">04 · Detail</p>
+      <h2>[[DETAIL_TITLE]]</h2>
+      <p>[[DETAIL_TEXT]]</p>
+    </div>
+    <div class="detail-img"></div>
+  </section>
+
+  <section>
+    <p class="cap">05 · Timeline</p>
+    <h2>[[TIMELINE_TITLE]]</h2>
+    <div class="glass tl">
+      <div class="tl-item"><div class="tl-time">[[TL_1_TIME]]</div><div><h3>[[TL_1_TITLE]]</h3><p>[[TL_1_TEXT]]</p></div></div>
+      <div class="tl-item"><div class="tl-time">[[TL_2_TIME]]</div><div><h3>[[TL_2_TITLE]]</h3><p>[[TL_2_TEXT]]</p></div></div>
+      <div class="tl-item"><div class="tl-time">[[TL_3_TIME]]</div><div><h3>[[TL_3_TITLE]]</h3><p>[[TL_3_TEXT]]</p></div></div>
+    </div>
+  </section>
+
+  <section class="glass quote">
+    "[[QUOTE]]"<cite>— [[QUOTE_AUTHOR]]</cite>
+  </section>
+
+  <footer class="glass"><span>[[FOOTER_LEFT]]</span><span>[[FOOTER_RIGHT]]</span></footer>
+</div>
+</body>
+</html>

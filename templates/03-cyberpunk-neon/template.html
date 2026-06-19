@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[[TITLE]]</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{--bg:#07070C;--surface:#0E0E18;--n1:#00FFB2;--n2:#FF2EC4;--n3:#00E0FF;--t:#E8FFE8;--t2:#7FB59C;--g:rgba(0,255,178,.06)}
+  body{background:var(--bg);background-image:linear-gradient(var(--g) 1px,transparent 1px),linear-gradient(90deg,var(--g) 1px,transparent 1px);background-size:40px 40px;color:var(--t);font:14px/1.6 'JetBrains Mono',ui-monospace,monospace;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1100px;margin:0 auto;padding:48px 32px 96px}
+  .display{font-family:'Space Grotesk',sans-serif}
+  h1{font-family:'Space Grotesk';font-size:72px;line-height:.95;font-weight:800;letter-spacing:-.02em;text-shadow:0 0 12px var(--n1),0 0 36px rgba(0,255,178,.3)}
+  h2{font-family:'Space Grotesk';font-size:32px;line-height:1.1;font-weight:700;text-transform:uppercase;letter-spacing:.02em;margin-bottom:24px}
+  h3{font-family:'Space Grotesk';font-size:18px;font-weight:700;margin-bottom:10px;color:var(--n1)}
+  p{color:var(--t2)}
+  .cap{font-size:11px;letter-spacing:.2em;color:var(--n2);margin-bottom:14px;text-transform:uppercase}
+  .cap::before{content:'> '}
+  /* HERO */
+  .hero{position:relative;border:1px solid var(--n1);padding:64px 48px;margin-bottom:64px;background:linear-gradient(135deg,rgba(0,255,178,.04),rgba(255,46,196,.04));box-shadow:inset 0 0 0 1px rgba(0,255,178,.2),0 0 40px rgba(0,255,178,.15)}
+  .hero::before{content:'[ SYSTEM://[[TAG]] ]';position:absolute;top:-10px;left:24px;background:var(--bg);padding:0 12px;font-size:11px;letter-spacing:.15em;color:var(--n1)}
+  .hero h1{margin-bottom:16px}
+  .hero h1 .accent{color:var(--n2);text-shadow:0 0 12px var(--n2),0 0 36px rgba(255,46,196,.3)}
+  .hero p{font-size:15px;max-width:600px;margin-bottom:40px}
+  .metrics{display:flex;gap:48px;flex-wrap:wrap}
+  .m b{display:block;font-family:'Space Grotesk';font-size:32px;font-weight:700;color:var(--n3);text-shadow:0 0 8px var(--n3)}
+  .m span{font-size:11px;color:var(--t2);letter-spacing:.1em;text-transform:uppercase}
+  section{margin-bottom:64px}
+  /* TABLE */
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th,td{padding:14px 16px;text-align:left;border:1px solid rgba(0,255,178,.2)}
+  th{background:rgba(0,255,178,.05);color:var(--n1);font-size:11px;text-transform:uppercase;letter-spacing:.1em;font-weight:500}
+  td:first-child{color:var(--n2);font-weight:500}
+  /* GRID */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:0;border:1px solid rgba(0,255,178,.2)}
+  .card{padding:32px;border-right:1px solid rgba(0,255,178,.2);border-bottom:1px solid rgba(0,255,178,.2)}
+  .card:last-child{border-right:0}
+  .card .ix{font-size:11px;color:var(--n2);letter-spacing:.15em;margin-bottom:12px}
+  /* DETAIL */
+  .detail{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:stretch}
+  .detail-text{padding:32px;border:1px solid rgba(0,255,178,.2)}
+  .detail-img{aspect-ratio:1/1;background:linear-gradient(135deg,#00FFB2,#FF2EC4,#00E0FF);position:relative;overflow:hidden;border:1px solid var(--n1)}
+  .detail-img::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(0,0,0,.4) 0,rgba(0,0,0,.4) 1px,transparent 1px,transparent 4px)}
+  /* TIMELINE */
+  .tl-item{display:grid;grid-template-columns:120px 16px 1fr;gap:20px;padding:20px 0;border-bottom:1px dashed rgba(0,255,178,.2)}
+  .tl-item:last-child{border-bottom:0}
+  .tl-time{color:var(--n3);font-size:12px}
+  .tl-dot{width:10px;height:10px;background:var(--n1);box-shadow:0 0 12px var(--n1);margin-top:6px}
+  /* QUOTE */
+  .quote{padding:48px;border:1px solid var(--n2);font-family:'Space Grotesk';font-size:24px;line-height:1.4;font-weight:500;position:relative;box-shadow:0 0 32px rgba(255,46,196,.15)}
+  .quote::before{content:'"';position:absolute;top:8px;left:16px;font-size:80px;color:var(--n2);opacity:.3;font-family:Georgia,serif}
+  .quote cite{display:block;margin-top:20px;font-size:13px;font-family:'JetBrains Mono';color:var(--t2);font-style:normal}
+  footer{border-top:1px solid rgba(0,255,178,.2);padding-top:24px;margin-top:64px;display:flex;justify-content:space-between;font-size:12px;color:var(--t2)}
+  @media (max-width:720px){.hero{padding:40px 24px}.hero h1{font-size:42px}.detail{grid-template-columns:1fr}.tl-item{grid-template-columns:1fr;gap:8px}.tl-dot{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <h1>[[TITLE_PART_1]]<span class="accent">[[TITLE_PART_2]]</span></h1>
+    <p>[[SUBTITLE]]</p>
+    <div class="metrics">
+      <div class="m"><b>[[METRIC_1_VALUE]]</b><span>[[METRIC_1_LABEL]]</span></div>
+      <div class="m"><b>[[METRIC_2_VALUE]]</b><span>[[METRIC_2_LABEL]]</span></div>
+      <div class="m"><b>[[METRIC_3_VALUE]]</b><span>[[METRIC_3_LABEL]]</span></div>
+      <div class="m"><b>[[METRIC_4_VALUE]]</b><span>[[METRIC_4_LABEL]]</span></div>
+    </div>
+  </header>
+
+  <section>
+    <p class="cap">01 / OVERVIEW</p>
+    <h2>[[OVERVIEW_TITLE]]</h2>
+    <p style="max-width:680px">[[OVERVIEW_TEXT]]</p>
+  </section>
+
+  <section>
+    <p class="cap">02 / DATA</p>
+    <h2>[[TABLE_TITLE]]</h2>
+    <table>
+      <thead><tr><th>[[COL_1]]</th><th>[[COL_2]]</th><th>[[COL_3]]</th><th>[[COL_4]]</th><th>[[COL_5]]</th></tr></thead>
+      <tbody>
+        <tr><td>[[ROW_1_C1]]</td><td>[[ROW_1_C2]]</td><td>[[ROW_1_C3]]</td><td>[[ROW_1_C4]]</td><td>[[ROW_1_C5]]</td></tr>
+        <tr><td>[[ROW_2_C1]]</td><td>[[ROW_2_C2]]</td><td>[[ROW_2_C3]]</td><td>[[ROW_2_C4]]</td><td>[[ROW_2_C5]]</td></tr>
+        <tr><td>[[ROW_3_C1]]</td><td>[[ROW_3_C2]]</td><td>[[ROW_3_C3]]</td><td>[[ROW_3_C4]]</td><td>[[ROW_3_C5]]</td></tr>
+        <tr><td>[[ROW_4_C1]]</td><td>[[ROW_4_C2]]</td><td>[[ROW_4_C3]]</td><td>[[ROW_4_C4]]</td><td>[[ROW_4_C5]]</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <p class="cap">03 / MODULES</p>
+    <h2>[[CARDS_TITLE]]</h2>
+    <div class="grid">
+      <div class="card"><div class="ix">[ MODULE.001 ]</div><h3>[[CARD_1_TITLE]]</h3><p>[[CARD_1_TEXT]]</p></div>
+      <div class="card"><div class="ix">[ MODULE.002 ]</div><h3>[[CARD_2_TITLE]]</h3><p>[[CARD_2_TEXT]]</p></div>
+      <div class="card"><div class="ix">[ MODULE.003 ]</div><h3>[[CARD_3_TITLE]]</h3><p>[[CARD_3_TEXT]]</p></div>
+    </div>
+  </section>
+
+  <section>
+    <p class="cap">04 / DETAIL</p>
+    <div class="detail">
+      <div class="detail-text">
+        <h2>[[DETAIL_TITLE]]</h2>
+        <p>[[DETAIL_TEXT]]</p>
+      </div>
+      <div class="detail-img"></div>
+    </div>
+  </section>
+
+  <section>
+    <p class="cap">05 / TIMELINE</p>
+    <h2>[[TIMELINE_TITLE]]</h2>
+    <div class="tl-item"><div class="tl-time">[[TL_1_TIME]]</div><div class="tl-dot"></div><div><h3>[[TL_1_TITLE]]</h3><p>[[TL_1_TEXT]]</p></div></div>
+    <div class="tl-item"><div class="tl-time">[[TL_2_TIME]]</div><div class="tl-dot"></div><div><h3>[[TL_2_TITLE]]</h3><p>[[TL_2_TEXT]]</p></div></div>
+    <div class="tl-item"><div class="tl-time">[[TL_3_TIME]]</div><div class="tl-dot"></div><div><h3>[[TL_3_TITLE]]</h3><p>[[TL_3_TEXT]]</p></div></div>
+    <div class="tl-item"><div class="tl-time">[[TL_4_TIME]]</div><div class="tl-dot"></div><div><h3>[[TL_4_TITLE]]</h3><p>[[TL_4_TEXT]]</p></div></div>
+  </section>
+
+  <section>
+    <blockquote class="quote">[[QUOTE]]<cite>// — [[QUOTE_AUTHOR]]</cite></blockquote>
+  </section>
+
+  <footer><span>[ [[FOOTER_LEFT]] ]</span><span>// [[FOOTER_RIGHT]]</span></footer>
+</div>
+</body>
+</html>

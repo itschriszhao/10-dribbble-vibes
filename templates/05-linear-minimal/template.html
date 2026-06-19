@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[[TITLE]]</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{--bg:#fff;--bg2:#FAFAFB;--ink:#08090A;--ink2:#6B6F76;--ink3:#94979E;--line:#E6E6E8;--ac:#5E6AD2;--ac2:#26B5CE}
+  body{background:var(--bg);color:var(--ink);font:15px/1.6 'Inter',-apple-system,'PingFang SC',sans-serif;-webkit-font-smoothing:antialiased;font-feature-settings:"cv11"}
+  .wrap{max-width:1040px;margin:0 auto;padding:64px 32px 96px}
+  h1{font-size:56px;line-height:1.1;letter-spacing:-.02em;font-weight:600}
+  h2{font-size:32px;line-height:1.2;letter-spacing:-.01em;font-weight:600;margin-bottom:16px}
+  h3{font-size:18px;line-height:1.4;font-weight:600;margin-bottom:8px}
+  p{color:var(--ink2)}
+  .eyebrow{font-size:13px;color:var(--ac);font-weight:500;margin-bottom:14px;display:inline-flex;align-items:center;gap:8px}
+  .eyebrow::before{content:'';width:4px;height:4px;background:var(--ac);border-radius:50%}
+  /* HERO */
+  .hero{padding:80px 0 64px;border-bottom:1px solid var(--line);margin-bottom:80px}
+  .hero h1{margin-bottom:20px;max-width:780px}
+  .hero p{font-size:19px;max-width:600px;margin-bottom:40px}
+  .btn{display:inline-block;background:var(--ink);color:#fff;padding:10px 18px;border-radius:8px;font-size:14px;font-weight:500;text-decoration:none}
+  .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:64px;padding-top:32px;border-top:1px solid var(--line)}
+  .m b{display:block;font-size:32px;font-weight:600;letter-spacing:-.02em;line-height:1.1}
+  .m span{display:block;margin-top:6px;font-size:13px;color:var(--ink3)}
+  section{margin-bottom:80px}
+  /* TABLE */
+  table{width:100%;border-collapse:collapse;font-size:14px;background:var(--bg);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  th,td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--line)}
+  th{background:var(--bg2);font-size:12px;font-weight:500;color:var(--ink2);text-transform:uppercase;letter-spacing:.04em}
+  tr:last-child td{border-bottom:0}
+  td:first-child{font-weight:500}
+  /* GRID */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+  .card{padding:24px;border:1px solid var(--line);border-radius:12px;background:var(--bg);transition:border-color .2s}
+  .card:hover{border-color:var(--ac)}
+  .card .num{font-size:12px;color:var(--ink3);font-weight:500;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+  .card .num::before{content:'';width:24px;height:1px;background:var(--ink3)}
+  .card p{font-size:14px}
+  /* DETAIL */
+  .detail{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;padding:48px;border:1px solid var(--line);border-radius:16px;background:var(--bg2)}
+  .detail-img{aspect-ratio:4/3;background:linear-gradient(135deg,var(--ac),var(--ac2));border-radius:12px}
+  /* TIMELINE */
+  .tl-item{display:grid;grid-template-columns:120px 1fr;gap:24px;padding:18px 0;border-bottom:1px solid var(--line)}
+  .tl-item:last-child{border-bottom:0}
+  .tl-time{font-size:12px;color:var(--ink3);font-weight:500;padding-top:2px}
+  /* QUOTE */
+  .quote{padding:40px 48px;border-left:3px solid var(--ac);font-size:22px;line-height:1.5;font-weight:500;color:var(--ink)}
+  .quote cite{display:block;margin-top:20px;font-size:13px;color:var(--ink3);font-style:normal;font-weight:400}
+  footer{padding-top:32px;border-top:1px solid var(--line);font-size:13px;color:var(--ink3);display:flex;justify-content:space-between;margin-top:80px}
+  @media (max-width:720px){h1{font-size:36px}.detail{grid-template-columns:1fr;padding:32px}.metrics{grid-template-columns:repeat(2,1fr)}.tl-item{grid-template-columns:1fr;gap:6px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <p class="eyebrow">[[TAG]]</p>
+    <h1>[[TITLE]]</h1>
+    <p>[[SUBTITLE]]</p>
+    <a class="btn" href="#">[[CTA]]</a>
+    <div class="metrics">
+      <div class="m"><b>[[METRIC_1_VALUE]]</b><span>[[METRIC_1_LABEL]]</span></div>
+      <div class="m"><b>[[METRIC_2_VALUE]]</b><span>[[METRIC_2_LABEL]]</span></div>
+      <div class="m"><b>[[METRIC_3_VALUE]]</b><span>[[METRIC_3_LABEL]]</span></div>
+      <div class="m"><b>[[METRIC_4_VALUE]]</b><span>[[METRIC_4_LABEL]]</span></div>
+    </div>
+  </header>
+
+  <section>
+    <p class="eyebrow">Overview</p>
+    <h2>[[OVERVIEW_TITLE]]</h2>
+    <p style="max-width:680px;font-size:16px">[[OVERVIEW_TEXT]]</p>
+  </section>
+
+  <section>
+    <p class="eyebrow">Comparison</p>
+    <h2>[[TABLE_TITLE]]</h2>
+    <table>
+      <thead><tr><th>[[COL_1]]</th><th>[[COL_2]]</th><th>[[COL_3]]</th><th>[[COL_4]]</th><th>[[COL_5]]</th></tr></thead>
+      <tbody>
+        <tr><td>[[ROW_1_C1]]</td><td>[[ROW_1_C2]]</td><td>[[ROW_1_C3]]</td><td>[[ROW_1_C4]]</td><td>[[ROW_1_C5]]</td></tr>
+        <tr><td>[[ROW_2_C1]]</td><td>[[ROW_2_C2]]</td><td>[[ROW_2_C3]]</td><td>[[ROW_2_C4]]</td><td>[[ROW_2_C5]]</td></tr>
+        <tr><td>[[ROW_3_C1]]</td><td>[[ROW_3_C2]]</td><td>[[ROW_3_C3]]</td><td>[[ROW_3_C4]]</td><td>[[ROW_3_C5]]</td></tr>
+        <tr><td>[[ROW_4_C1]]</td><td>[[ROW_4_C2]]</td><td>[[ROW_4_C3]]</td><td>[[ROW_4_C4]]</td><td>[[ROW_4_C5]]</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <p class="eyebrow">Features</p>
+    <h2>[[CARDS_TITLE]]</h2>
+    <div class="grid" style="margin-top:32px">
+      <div class="card"><div class="num">01</div><h3>[[CARD_1_TITLE]]</h3><p>[[CARD_1_TEXT]]</p></div>
+      <div class="card"><div class="num">02</div><h3>[[CARD_2_TITLE]]</h3><p>[[CARD_2_TEXT]]</p></div>
+      <div class="card"><div class="num">03</div><h3>[[CARD_3_TITLE]]</h3><p>[[CARD_3_TEXT]]</p></div>
+    </div>
+  </section>
+
+  <section class="detail">
+    <div>
+      <p class="eyebrow">Detail</p>
+      <h2>[[DETAIL_TITLE]]</h2>
+      <p>[[DETAIL_TEXT]]</p>
+    </div>
+    <div class="detail-img"></div>
+  </section>
+
+  <section>
+    <p class="eyebrow">Timeline</p>
+    <h2>[[TIMELINE_TITLE]]</h2>
+    <div style="margin-top:24px">
+      <div class="tl-item"><div class="tl-time">[[TL_1_TIME]]</div><div><h3>[[TL_1_TITLE]]</h3><p>[[TL_1_TEXT]]</p></div></div>
+      <div class="tl-item"><div class="tl-time">[[TL_2_TIME]]</div><div><h3>[[TL_2_TITLE]]</h3><p>[[TL_2_TEXT]]</p></div></div>
+      <div class="tl-item"><div class="tl-time">[[TL_3_TIME]]</div><div><h3>[[TL_3_TITLE]]</h3><p>[[TL_3_TEXT]]</p></div></div>
+    </div>
+  </section>
+
+  <section>
+    <blockquote class="quote">"[[QUOTE]]"<cite>— [[QUOTE_AUTHOR]]</cite></blockquote>
+  </section>
+
+  <footer><span>[[FOOTER_LEFT]]</span><span>[[FOOTER_RIGHT]]</span></footer>
+</div>
+</body>
+</html>
